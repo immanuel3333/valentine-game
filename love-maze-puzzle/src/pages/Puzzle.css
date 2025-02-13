@@ -2,24 +2,23 @@
 body {
   font-family: "Arial", sans-serif;
   text-align: center;
-  padding: 20px;
-  background: #f4f7fc; /* Warna latar yang lebih soft */
+  background: #f4f7fc;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  flex-direction: column;
+  padding: 20px;
+  margin: 0;
 }
 
 /* ====== Game Container ====== */
 .game-container {
   display: flex;
-  justify-content: center;
   align-items: center;
+  overflow: hidden;
   flex-direction: column;
   gap: 20px;
-  width: 100%;
-  max-width: 500px;
+  width: min(90vw, 450px);
   background: white;
   padding: 20px;
   border-radius: 12px;
@@ -34,7 +33,7 @@ body {
   border: 2px solid #ccc;
   padding: 10px;
   border-radius: 8px;
-  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .reference-image img {
@@ -46,12 +45,12 @@ body {
 
 /* ====== Puzzle Container ====== */
 .puzzle-container {
-  max-width: 400px;
   width: 100%;
+  aspect-ratio: 1;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2px;
-  border: 3px solid #ccc;
+  border: 3px solid #aaa;
   background: #eceff1;
   padding: 5px;
   border-radius: 10px;
@@ -60,29 +59,54 @@ body {
 /* ====== Puzzle Pieces ====== */
 .puzzle-piece {
   width: 100%;
-  aspect-ratio: 1; /* Memastikan proporsi tetap */
-  background-size: 400px 400px; /* Pastikan ukuran tetap */
-  background-repeat: no-repeat; /* Mencegah pengulangan gambar */
+  aspect-ratio: 1;
+  background-size: contain;
+  background-size: 400% 400%;
   cursor: grab;
   border-radius: 6px;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .puzzle-piece:active {
   transform: scale(1.05);
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.4);
 }
 
-/* ====== Responsive Design ====== */
-@media (max-width: 768px) {
-  .puzzle-container {
-    width: 90vw;
-    min-width: 300px;
-    height: auto;
-  }
+/* ====== Button Styles ====== */
+.preview-button,
+.next-game-button {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  background: #007bff;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.1s;
+}
 
-  .puzzle-piece {
-    background-size: 100% 100%; /* Pastikan potongan tetap sesuai */
-    background-repeat: no-repeat;
-    background-position: center;
-  }
+.preview-button:hover,
+.next-game-button:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
+
+/* ====== Win Message ====== */
+.win-message {
+  margin-top: 15px;
+  padding: 15px;
+  background: white;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.win-message h2 {
+  font-size: 1.5rem;
+  color: #28a745;
+}
+
+.win-message p {
+  color: #555;
 }

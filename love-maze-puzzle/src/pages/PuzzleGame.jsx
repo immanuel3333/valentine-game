@@ -85,8 +85,8 @@ function PuzzleGame() {
       {/* Puzzle Container */}
       <div className="puzzle-container">
         {positions.map((pos, index) => {
-          const x = (pos % 4) * (window.innerWidth < 768 ? 100 : 100);
-          const y = Math.floor(pos / 4) * (window.innerWidth < 768 ? 100 : 100);
+          const x = (pos % 4) * (100 / 3); // 100% dibagi 3 (karena 4 kolom, 0, 33.3%, 66.6%, 100%)
+          const y = Math.floor(pos / 4) * (100 / 3);
 
           return (
             <div
@@ -100,9 +100,8 @@ function PuzzleGame() {
               onTouchEnd={() => handleTouchEnd(index)}
               style={{
                 backgroundImage: `url('${imgUrl}')`,
-                backgroundSize: "400px 400px", // Ukuran tetap
-                backgroundPosition: `-${x}px -${y}px`, // Potongan gambar sesuai grid
-                backgroundRepeat: "no-repeat", // Mencegah pengulangan gambar
+                backgroundSize: "400% 400%", // 4x4 grid, atur agar ukuran latar belakang pas
+                backgroundPosition: `${x}% ${y}%`, // Sesuai grid, sekarang presisi
               }}
             />
           );
