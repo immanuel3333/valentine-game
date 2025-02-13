@@ -85,8 +85,9 @@ function PuzzleGame() {
       {/* Puzzle Container */}
       <div className="puzzle-container">
         {positions.map((pos, index) => {
-          const x = (pos % 4) * 100;
-          const y = Math.floor(pos / 4) * 100;
+          const x = (pos % 4) * (window.innerWidth < 768 ? 100 : 100);
+          const y = Math.floor(pos / 4) * (window.innerWidth < 768 ? 100 : 100);
+
           return (
             <div
               key={index}

@@ -118,3 +118,34 @@ body {
   background: #e68900;
   transform: scale(1.05);
 }
+
+.puzzle-container {
+  max-width: 400px; /* Batasi ukuran maksimal agar tidak melar */
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  border: 5px solid #aaa9a9;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  background: #ddd;
+}
+
+@media (max-width: 768px) {
+  .puzzle-container {
+    width: 90vw; /* Pastikan lebar menyesuaikan mobile */
+    height: auto;
+  }
+}
+
+.puzzle-piece {
+  background-size: 400px 400px; /* Pastikan ukuran tetap untuk mobile */
+  background-repeat: no-repeat;
+  touch-action: none; /* Mencegah scroll saat menyentuh puzzle */
+}
+
+@media (max-width: 768px) {
+  .puzzle-piece {
+    background-size: 100% 100%; /* Agar gambar tidak terzoom di mobile */
+  }
+}
