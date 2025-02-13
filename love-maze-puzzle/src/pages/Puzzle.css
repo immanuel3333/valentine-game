@@ -1,0 +1,120 @@
+/* ====== Global Style ====== */
+body {
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  padding: 20px;
+  background: #f4f7fc; /* Warna latar yang lebih soft */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+/* ====== Game Container ====== */
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 500px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* ====== Reference Image ====== */
+.reference-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: white;
+}
+
+.reference-image img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* ====== Puzzle Container ====== */
+.puzzle-container {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  border: 3px solid #ccc;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  background: #eceff1;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+/* ====== Puzzle Pieces ====== */
+.puzzle-piece {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1; /* Supaya tetap proporsional */
+  background-size: 400px 400px;
+  cursor: grab;
+  border-radius: 6px;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+}
+
+.puzzle-piece:active {
+  cursor: grabbing;
+  transform: scale(1.05);
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Highlight area drop */
+.puzzle-container .droppable {
+  border: 2px dashed #4caf50;
+  background: rgba(76, 175, 80, 0.15);
+}
+
+/* ====== Responsive Design ====== */
+@media (max-width: 500px) {
+  .game-container {
+    max-width: 90%;
+  }
+
+  .puzzle-container {
+    max-width: 90%;
+    gap: 2px;
+  }
+
+  .puzzle-piece {
+    border-radius: 4px;
+  }
+}
+
+/* ====== Reset Button ====== */
+.reset-button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  background: #ff9800;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.1s;
+}
+
+.reset-button:hover {
+  background: #e68900;
+  transform: scale(1.05);
+}
