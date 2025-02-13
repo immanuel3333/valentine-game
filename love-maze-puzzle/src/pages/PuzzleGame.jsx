@@ -100,7 +100,9 @@ function PuzzleGame() {
               onTouchEnd={() => handleTouchEnd(index)}
               style={{
                 backgroundImage: `url('${imgUrl}')`,
-                backgroundPosition: `-${x}px -${y}px`,
+                backgroundSize: "400px 400px", // Ukuran tetap
+                backgroundPosition: `-${x}px -${y}px`, // Potongan gambar sesuai grid
+                backgroundRepeat: "no-repeat", // Mencegah pengulangan gambar
               }}
             />
           );

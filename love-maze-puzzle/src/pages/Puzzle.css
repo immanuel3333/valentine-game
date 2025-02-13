@@ -34,7 +34,6 @@ body {
   border: 2px solid #ccc;
   padding: 10px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background: white;
 }
 
@@ -47,14 +46,12 @@ body {
 
 /* ====== Puzzle Container ====== */
 .puzzle-container {
-  width: 100%;
   max-width: 400px;
-  height: auto;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 4px;
+  gap: 2px;
   border: 3px solid #ccc;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   background: #eceff1;
   padding: 5px;
   border-radius: 10px;
@@ -63,89 +60,29 @@ body {
 /* ====== Puzzle Pieces ====== */
 .puzzle-piece {
   width: 100%;
-  height: auto;
-  aspect-ratio: 1; /* Supaya tetap proporsional */
-  background-size: 400px 400px;
+  aspect-ratio: 1; /* Memastikan proporsi tetap */
+  background-size: 400px 400px; /* Pastikan ukuran tetap */
+  background-repeat: no-repeat; /* Mencegah pengulangan gambar */
   cursor: grab;
   border-radius: 6px;
-  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease-in-out, box-shadow 0.2s;
 }
 
 .puzzle-piece:active {
-  cursor: grabbing;
   transform: scale(1.05);
-  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.4);
-}
-
-/* Highlight area drop */
-.puzzle-container .droppable {
-  border: 2px dashed #4caf50;
-  background: rgba(76, 175, 80, 0.15);
 }
 
 /* ====== Responsive Design ====== */
-@media (max-width: 500px) {
-  .game-container {
-    max-width: 90%;
-  }
-
-  .puzzle-container {
-    max-width: 90%;
-    gap: 2px;
-  }
-
-  .puzzle-piece {
-    border-radius: 4px;
-  }
-}
-
-/* ====== Reset Button ====== */
-.reset-button {
-  margin-top: 15px;
-  padding: 12px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
-  background: #ff9800;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s ease-in-out, transform 0.1s;
-}
-
-.reset-button:hover {
-  background: #e68900;
-  transform: scale(1.05);
-}
-
-.puzzle-container {
-  max-width: 400px; /* Batasi ukuran maksimal agar tidak melar */
-  width: 100%;
-  height: auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2px;
-  border: 5px solid #aaa9a9;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  background: #ddd;
-}
-
 @media (max-width: 768px) {
   .puzzle-container {
-    width: 90vw; /* Pastikan lebar menyesuaikan mobile */
+    width: 90vw;
+    min-width: 300px;
     height: auto;
   }
-}
 
-.puzzle-piece {
-  background-size: 400px 400px; /* Pastikan ukuran tetap untuk mobile */
-  background-repeat: no-repeat;
-  touch-action: none; /* Mencegah scroll saat menyentuh puzzle */
-}
-
-@media (max-width: 768px) {
   .puzzle-piece {
-    background-size: 100% 100%; /* Agar gambar tidak terzoom di mobile */
+    background-size: 100% 100%; /* Pastikan potongan tetap sesuai */
+    background-repeat: no-repeat;
+    background-position: center;
   }
 }
